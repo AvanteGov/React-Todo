@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import ToDoCard from './ToDoCard';
+
 // class ToDoList extends Component {
 
 //     constructor () {
@@ -17,11 +19,18 @@ import React, { Component } from 'react';
 
 ///////////////////////
 
-const ToDoList = () => {
+const ToDoList = (props) => {
+    console.log("list props", props)
 
     return (
         <div> 
-            <h1> I AM THE TODO LIST </h1>
+            
+            {props.list.map((todo) => {
+               
+               return (
+                <ToDoCard reminder={todo} />
+               ) 
+            })}
         </div>
     )
 }

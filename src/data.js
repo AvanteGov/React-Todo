@@ -1,4 +1,4 @@
-const toDoItems = [
+const data = [
     {
       task: 'Organize Garage',
       id: 1528817077286,
@@ -11,4 +11,4 @@ const toDoItems = [
     }
   ];
 
-export default toDoItems;
+export default data;
