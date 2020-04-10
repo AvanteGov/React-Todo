@@ -50,12 +50,59 @@ class App extends React.Component {
     console.log("updated state", this.state.data)
   }
 
+  filterCompleted = (event) =>  {
+    event.preventDefault();
+
+    // sets state to the returned filtered result of the check against 
+    // value of completed key 
+    this.setState({
+      data: this.state.data.filter((item) => {
+        return (
+          !item.completed
+        )
+      }) 
+    })
+  }
+
+
+  // handles the toggling of the compelted status by taking the clicked item ID 
+  completeChangeHandler = (listId) => {
+    console.log("list id", listId)
+
+    // updates the state of the dataset by:
+    this.setState({
+      data: this.state.data.map((listItem) => {
+        // mapping over the data set to find the right item 
+        if (listId === listItem.id) {
+
+          // once the item matches, it changes the status of completed
+          // within the state 
+          return {
+            ...listItem,
+            // to whatever completed is NOT 
+            completed: !listItem.completed
+          }
+        }
+        
+        // if it cannot find the item in the list, it just returns 
+        // the list
+        else return listItem;
+      })
+    })
+  }
 
   render() {
     return (
       <div>
-        <ToDoForm addItem={this.addToDo} />
-        <ToDoList list={this.state.data} />
+        <ToDoForm 
+          addItem={this.addToDo} 
+          filterItems={this.filterCompleted} 
+        />
+        
+        <ToDoList 
+          list={this.state.data} 
+          completeHandler={this.completeChangeHandler} 
+        />
       </div>
     );
   }

@@ -45,7 +45,8 @@ class ToDoForm extends Component {
                     </input>
                     
                     <button type="submit">Create Note!</button>
-                </form>
+                    <button onClick={this.props.filterCompleted}>Clear Completed</button>
+                </form>                
             </div>
         )
     }

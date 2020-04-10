@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import ToDoCard from './ToDoCard';
 
-// class ToDoList extends Component {
+// class ToDoList extends React.Component {
 
 //     constructor () {
 //         super();
@@ -28,7 +28,10 @@ const ToDoList = (props) => {
             {props.list.map((todo) => {
                
                return (
-                <ToDoCard reminder={todo} />
+                <ToDoCard 
+                    reminder={todo}
+                    completeHandler={props.completeHandler}
+                    key={props.list.id} />
                ) 
             })}
         </div>
