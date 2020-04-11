@@ -52,7 +52,7 @@ class App extends React.Component {
 
   filterCompleted = (event) =>  {
     event.preventDefault();
-
+    console.log("filter funct ran");
     // sets state to the returned filtered result of the check against 
     // value of completed key 
     this.setState({

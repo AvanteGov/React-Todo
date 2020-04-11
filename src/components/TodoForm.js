@@ -2,8 +2,9 @@ import React, { Component } from "react";
 
 class ToDoForm extends Component {
 
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
+        // console.log("form props BABY",props);
         this.state = {
             input: ""
         }
@@ -20,7 +21,7 @@ class ToDoForm extends Component {
 
     //submission handler 
     submitHandler = (event) => {
-        console.log("form props", this.props)
+        // console.log("form props", this.props)
         event.preventDefault();
 
         // passes the input and event information up to the addItem function
@@ -45,8 +46,8 @@ class ToDoForm extends Component {
                     </input>
                     
                     <button type="submit">Create Note!</button>
-                    <button onClick={this.props.filterCompleted}>Clear Completed</button>
                 </form>                
+                <button onClick={this.props.filterItems}>Clear Completed</button>
             </div>
         )
     }
