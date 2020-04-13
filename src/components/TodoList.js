@@ -23,12 +23,12 @@ const ToDoList = (props) => {
     console.log("list props", props)
 
     return (
-        <div> 
+        <div className="list"> 
             
             {props.list.map((todo) => {
                
                return (
-                <ToDoCard 
+                <ToDoCard
                     reminder={todo}
                     completeHandler={props.completeHandler}
                     key={props.list.id} />

@@ -5,12 +5,15 @@ import React from 'react';
 import ToDoForm from './components/TodoForm';
 import ToDoList from './components/TodoList';
 
+// styling 
+import './Todo.css';
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-  constructor (){
+  constructor () {
     super();
     this.state = {
       data: [
@@ -26,6 +29,10 @@ class App extends React.Component {
         }
       ]
     }
+    // when NOT using arrow functions in the defintion of a function
+    // a BIND statrement must be written in order to assign 
+    // the scope of this reference in the function properly
+    // this.completeChangeHandler = this.completeChangeHandler.bind(this)
   }
 
   // add item handler to be passed down to form using props
@@ -90,6 +97,9 @@ class App extends React.Component {
       })
     })
   }
+
+  // 
+  // return (listId === listItem.id) ? { ...listItem, completed: !item.completed} : listItem
 
   render() {
     return (

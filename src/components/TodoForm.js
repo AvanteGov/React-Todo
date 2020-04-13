@@ -35,19 +35,31 @@ class ToDoForm extends Component {
 
     render () {
         return (
-            <div>
-                <form onSubmit={this.submitHandler}>
-                     <input 
-                        type="text" 
-                        placeholder="a new note"
-                        name="input"
-                        value={this.state.input}
-                        onChange={this.changeHandler}>        
+            <div className="form-container">
+                
+                <form 
+                className="form-container__form"
+                onSubmit={this.submitHandler}>
+                     
+                    <label htmlForm="input"></label>
+                     
+                    <input 
+                    type="text" 
+                    placeholder="a new note"
+                    className="form__input"
+                    name="input"
+                    value={this.state.input}
+                    onChange={this.changeHandler}>        
                     </input>
                     
-                    <button type="submit">Create Note!</button>
+                    <button 
+                    type="submit"
+                    className="form__button">
+                        Create Note!
+                    </button>
                 </form>                
-                <button onClick={this.props.filterItems}>Clear Completed</button>
+                
+                <button className="form-container__button" onClick={this.props.filterItems}>Clear Completed</button>
             </div>
         )
     }
